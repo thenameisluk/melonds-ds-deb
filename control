@@ -1,0 +1,6 @@
+Package: libretro-melonds-ds
+Version: 1.1.7
+Maintainer: luk<luk@iaml.uk>
+Architecture: arm64
+Description: melonds based libretro core
+Depends: libretro-core-info

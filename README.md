@@ -1,3 +1,23 @@
+# melonds-ds-deb
+
+Fork made to build .deb package for debian
+
+it's as simple as 
+
+1. Install dependencies like so:
+
+   ```sh
+   sudo apt install cmake git pkg-config # Ubuntu/Debian
+   sudo pacman -S base-devel cmake extra-cmake-modules git # Arch Linux
+   ```
+2. and running ```./make_build``` file
+
+fork only ment for arm64 linux but if someone wants to use it
+on amd64 arch edit ```./control```
+
+no plans to add automated building via github, pr's welcom but
+not expecting anyone to take it on
+
 # melonDS DS
 
 An enhanced remake of the [melonDS][melonds] [core][melonds-libretro] for [libretro][libretro]

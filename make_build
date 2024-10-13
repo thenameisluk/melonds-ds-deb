@@ -1,0 +1,30 @@
+rm -rf build
+
+mkdir build
+cd build
+
+#prepare for build
+until cmake .. ; do #the git download might fail because github so we gotta retry
+  echo "Retrying..."
+  sleep 1
+done
+
+#build the core
+make -j$(nproc)
+
+#control file
+mkdir -p deb/DEBIAN
+cp -v ../control deb/DEBIAN/control
+
+#the core files
+
+#the info file is included in libretro-core-info
+#mkdir -p deb/usr/share/libretro/info/
+#cp -v melondsds_libretro.info deb/usr/share/libretro/info/
+
+
+mkdir -p deb/usr/lib/aarch64-linux-gnu/libretro/
+cp -v src/libretro/melondsds_libretro.so deb/usr/lib/aarch64-linux-gnu/libretro/
+
+#build deb
+dpkg-deb --build deb
